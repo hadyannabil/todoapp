@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Todo extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'status',
+        'due_date',
+    ];
+
+    protected $casts = [
+        'due_date' => 'date',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function getStatusLabelAttribute(): string
+    {
+        return match($this->status) {
+            'pending'     => 'Belum Dikerjakan',
+            'in_progress' => 'Sedang Dikerjakan',
+            'completed'   => 'Selesai',
+            default       => $this->status,
+        };
+    }
+}
