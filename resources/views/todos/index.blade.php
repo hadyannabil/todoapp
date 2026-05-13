@@ -22,12 +22,10 @@
         @foreach($todos as $todo)
         <div class="card" style="display:flex; align-items:center; gap:1.5rem; padding:1.2rem 1.5rem;">
 
-            {{-- Status dot --}}
             <div style="width:10px; height:10px; border-radius:50%; flex-shrink:0;
                 background: {{ $todo->status === 'completed' ? 'var(--accent2)' : ($todo->status === 'in_progress' ? '#40a0f0' : '#f0c040') }}">
             </div>
 
-            {{-- Info --}}
             <div style="flex:1; min-width:0;">
                 <a href="{{ route('todos.show', $todo) }}"
                    style="font-weight:700; font-size:1.05rem; color:var(--text); text-decoration:none;
@@ -45,7 +43,6 @@
                 </div>
             </div>
 
-            {{-- Actions --}}
             <div style="display:flex; gap:0.5rem; flex-shrink:0;">
                 <a href="{{ route('todos.show', $todo) }}" class="btn btn-secondary btn-sm">Lihat</a>
                 @auth

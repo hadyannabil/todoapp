@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\AuthController;
 
-// Auth routes
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register']);
@@ -14,7 +13,6 @@ Route::middleware('guest')->group(function () {
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
-// Protected routes (hanya untuk user yang sudah login)
 Route::middleware('auth')->group(function () {
     Route::get('/todos/create', [TodoController::class, 'create'])->name('todos.create');
     Route::post('/todos', [TodoController::class, 'store'])->name('todos.store');
@@ -23,7 +21,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/todos/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
 });
 
-// Public routes (taruh PALING BAWAH)
 Route::get('/', [TodoController::class, 'index'])->name('todos.index');
 Route::get('/todos', [TodoController::class, 'index']);
 Route::get('/todos/{todo}', [TodoController::class, 'show'])->name('todos.show');
