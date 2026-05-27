@@ -55,7 +55,7 @@
             letter-spacing: -0.5px;
         }
 
-        .nav-brand span { color: var(--accent2); }
+        .nav-brand span { color: #f06292; }
 
         .nav-links { display: flex; align-items: center; gap: 0.5rem; }
 
@@ -88,9 +88,11 @@
 
         .nav-user {
             font-size: 0.85rem;
-            color: var(--muted);
-            padding: 0.4rem 0.8rem;
+            color: var(--text);
+            font-weight: 500;
+            padding: 0.4rem 0.9rem;
             background: var(--surface2);
+            border: 1px solid var(--border);
             border-radius: 8px;
         }
 
