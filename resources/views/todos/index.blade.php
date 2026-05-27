@@ -4,13 +4,18 @@
 
 @section('content')
 
-<div style="display:flex; align-items:center; justify-content:center; flex-direction:column; margin-bottom:2rem; gap:1rem;">
-    <div style="text-align:center;">
-        <h1 class="page-title">Daftar Tugas</h1>
-        <p class="page-subtitle">Semua tugas yang telah dibuat oleh pengguna</p>
+<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:2rem; gap:1rem; flex-wrap:wrap;">
+    <div>
+        <h1 class="page-title" style="text-align:left; margin-bottom:0.25rem;">Daftar Tugas</h1>
+        <p class="page-subtitle" style="text-align:left; margin:0;">Semua tugas yang telah dibuat oleh pengguna</p>
     </div>
     @auth
-    <a href="{{ route('todos.create') }}" class="btn btn-primary">+ Tambah Tugas</a>
+    <a href="{{ route('todos.create') }}" class="btn btn-primary" style="white-space:nowrap; display:inline-flex; align-items:center; gap:0.4rem; padding:0.6rem 1.25rem; font-size:0.95rem;">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 3v10M3 8h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Tambah Tugas
+    </a>
     @endauth
 </div>
 
