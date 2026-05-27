@@ -50,12 +50,12 @@
         .nav-brand {
             font-weight: 800;
             font-size: 1.4rem;
-            color: var(--accent);
+            color: #22d3ee;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
 
-        .nav-brand span { color: #f06292; }
+        .nav-brand span { color: #1d4ed8; }
 
         .nav-links { display: flex; align-items: center; gap: 0.5rem; }
 
