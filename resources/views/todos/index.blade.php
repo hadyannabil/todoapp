@@ -4,9 +4,14 @@
 
 @section('content')
 
-<div style="text-align:center; margin-bottom:2rem;">
-    <h1 class="page-title">Daftar Tugas</h1>
-    <p class="page-subtitle">Semua tugas yang telah dibuat oleh pengguna</p>
+<div style="display:flex; align-items:center; justify-content:center; flex-direction:column; margin-bottom:2rem; gap:1rem;">
+    <div style="text-align:center;">
+        <h1 class="page-title">Daftar Tugas</h1>
+        <p class="page-subtitle">Semua tugas yang telah dibuat oleh pengguna</p>
+    </div>
+    @auth
+    <a href="{{ route('todos.create') }}" class="btn btn-primary">+ Tambah Tugas</a>
+    @endauth
 </div>
 
 @if($todos->isEmpty())
@@ -23,9 +28,6 @@
             </svg>
         </div>
         <p style="color:var(--muted); font-size:1.1rem;">Belum ada tugas. Jadilah yang pertama menambahkan!</p>
-        @auth
-        <a href="{{ route('todos.create') }}" class="btn btn-primary" style="margin-top:1.5rem;">+ Tambah Tugas</a>
-        @endauth
     </div>
 @else
     <div style="display:flex; flex-direction:column; gap:0.75rem;">
