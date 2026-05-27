@@ -45,16 +45,20 @@
 
             <div style="flex:1; min-width:0;">
                 <a href="{{ route('todos.show', $todo) }}"
-                   style="font-weight:700; font-size:1.05rem; color:var(--text); text-decoration:none;
-                          {{ $todo->status === 'completed' ? 'text-decoration:line-through; opacity:0.6;' : '' }}">
+                   style="font-weight:700; font-size:1.05rem; color:var(--text); text-decoration:none;">
                     {{ $todo->title }}
                 </a>
                 <div style="display:flex; gap:0.75rem; align-items:center; margin-top:0.25rem; flex-wrap:wrap;">
                     <span class="badge badge-{{ $todo->status }}">{{ $todo->status_label }}</span>
                     <span style="font-size:0.8rem; color:var(--muted);">oleh {{ $todo->user->name }}</span>
                     @if($todo->due_date)
-                    <span style="font-size:0.8rem; color:var(--muted);">
-                        📅 {{ $todo->due_date->format('d M Y') }}
+                    <span style="font-size:0.8rem; color:var(--muted); display:inline-flex; align-items:center; gap:0.3rem;">
+                        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M1 7h14" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M5 1v3M11 1v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        {{ $todo->due_date->format('d M Y') }}
                     </span>
                     @endif
                 </div>
